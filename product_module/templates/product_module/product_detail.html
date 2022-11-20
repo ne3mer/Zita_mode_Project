@@ -1,5 +1,8 @@
 {% extends 'shared/_layout.html' %}
 
+{{% block title %}
+{{ product.title }}
+{% endblock %}
 
 
 {% block topbody %}
@@ -25,7 +28,7 @@
         * Use class "ph-inline" to enable content inline position (for a single project page only! No effect with class "ph-center"!).
         -->
         <div id="page-header"
-             class="ph-full ph-inline ph-bg-image ph-image-shadow ph-image-cover-5 ph-content-parallax">
+             class="ph-full ph-inline ph-bg-image ph-image-shadow ph-image-cover-5 ph-content-parallax" style="direction: rtl">
             <div class="page-header-inner tt-wrap">
 
                 <!-- Begin page header image 
@@ -61,22 +64,16 @@
                 <div class="project-info-list anim-fadeinup">
                     <ul>
                         <li>
-                            <div class="pi-list-heading">Client</div>
-                            <div class="pi-list-cont">Themetorium</div>
+                            <div class="pi-list-heading">دسته بندی:</div>
+                            <div class="pi-list-cont">{{ product.category.title }}</div>
                         </li>
                         <li>
-                            <div class="pi-list-heading">Year</div>
-                            <div class="pi-list-cont">2021</div>
+                            <div class="pi-list-heading">زمان انتشار</div>
+                            <div class="pi-list-cont">{{ product.created_date.year }}</div>
                         </li>
                         <li>
-                            <div class="pi-list-heading">Role</div>
-                            <div class="pi-list-cont">Branding</div> <!-- Describe in a few words -->
-                        </li>
-                        <li>
-                            <div class="pi-list-heading">Website</div>
-                            <div class="pi-list-cont"><a href="https://themetorium.net" target="_blank" rel="noopener">Visit
-                                site<span class="pi-list-icon tt-link"><i class="fas fa-arrow-right"></i></span></a>
-                            </div>
+                            <div class="pi-list-heading">نام طراح</div>
+                            <div class="pi-list-cont">{{ product.designer }}</div> <!-- Describe in a few words -->
                         </li>
                     </ul>
                 </div>
@@ -86,27 +83,26 @@
 
             <!-- Begin scroll down circle (you can change "data-offset" to set scroll top offset) 
             ============================== -->
-            <a href="#page-content" class="scroll-down-circle" data-offset="30">
-                <div class="sdc-inner ph-appear">
-                    <div class="sdc-icon"><i class="fas fa-chevron-down"></i></div>
-                    <svg viewBox="0 0 500 500">
-                        <defs>
-                            <path d="M50,250c0-110.5,89.5-200,200-200s200,89.5,200,200s-89.5,200-200,200S50,360.5,50,250"
-                                  id="textcircle"></path>
-                        </defs>
-                        <text dy="30">
-                            <textPath xlink:href="#textcircle">Scroll down - scroll down -</textPath>
-                        </text>
-                    </svg>
-                </div> <!-- /.sdc-inner -->
-            </a>
+           <a href="#page-content" class="scroll-down-circle" data-offset="30">
+							<div class="sdc-inner ph-appear">
+								<div class="sdc-icon"><i class="fas fa-chevron-down"></i></div>
+								<svg viewBox="0 0 500 500">
+									<defs>
+										<path d="M50,250c0-110.5,89.5-200,200-200s200,89.5,200,200s-89.5,200-200,200S50,360.5,50,250" id="textcircle"></path>
+									</defs>
+									<text dy="30">
+										<textPath xlink:href="#textcircle">Scroll down - Scroll down -</textPath>
+									</text>
+								</svg>
+							</div> <!-- /.sdc-inner -->
+						</a>
             <!-- End scroll down circle -->
 
             <!-- Begin made with love 
             ========================== -->
             <div class="made-with-love ph-appear">
                 <div class="mwl-inner">
-                    <div class="mwl-text">Made with</div>
+                    <div class="mwl-text">ساخته شده با</div>
                     <div class="mwl-icon"><i class="far fa-heart"></i></div>
                 </div>
             </div>
@@ -164,7 +160,7 @@
             <div class="tt-section padding-top-xlg-180 padding-left-sm-3-p padding-right-sm-3-p">
                 <div class="tt-section-inner tt-wrap">
 
-                    <div class="tt-row">
+                    <div class="tt-row" style="direction: rtl">
                         <div class="tt-col-lg-4 padding-right-md-5-p">
 
                             <!-- Begin tt-Heading 
@@ -175,7 +171,7 @@
                             * Use prepared helper class "max-width-*" to add custom width if needed. Example: "max-width-800". More info about helper classes can be found in the file "helper.css".
                             -->
                             <div class="tt-heading tt-heading-xsm margin-bottom-60 anim-fadeinup">
-                                <h2 class="tt-heading-title">The Story</h2>
+                                <h2 class="tt-heading-title">داستان {{ product.title }}</h2>
                                 <!-- <h3 class="tt-heading-subtitle text-gray">Subtitle</h3> -->
                             </div>
                             <!-- End tt-Heading -->
@@ -217,7 +213,7 @@
                     <div class="tt-image tti-fixed-height">
                         <figure>
                             <img class="anim-image-parallax tt-lazy" src='{{ product.image1.url }}'
-                                                         data-src="{{ product.main_image }}"
+                                 data-src="{{ product.main_image }}"
                                  alt="image">
                             <figcaption>
                                 Image Caption
@@ -236,7 +232,7 @@
             ============================ 
             * You can use padding classes if needed. For example "padding-top-xlg-150", "padding-bottom-xlg-150", "no-padding-top", "no-padding-bottom", etc. Note that each situation may be different and each section may need different classes according to your needs. More info about helper classes can be found in the file "helper.css".
             -->
-            <div class="tt-section padding-top-xlg-100 padding-bottom-xlg-100 padding-left-sm-3-p padding-right-sm-3-p">
+            <div style="direction: rtl" class="tt-section padding-top-xlg-100 padding-bottom-xlg-100 padding-left-sm-3-p padding-right-sm-3-p">
                 <div class="tt-section-inner tt-wrap max-width-900">
 
                     <!-- Begin tt-Heading 
@@ -247,16 +243,13 @@
                     * Use prepared helper class "max-width-*" to add custom width if needed. Example: "max-width-800". More info about helper classes can be found in the file "helper.css".
                     -->
                     <div class="tt-heading tt-heading-xsm anim-fadeinup">
-                        <h2 class="tt-heading-title">Afterwords</h2>
+                        <h2 class="tt-heading-title">متن آموزش {{ product.title }}</h2>
                         <!-- <h3 class="tt-heading-subtitle text-gray">Subtitle</h3> -->
                     </div>
                     <!-- End tt-Heading -->
 
                     <div class="anim-fadeinup text-gray">
-                        <p>Ought these are balls place mrs their times add she. Taken no great widow spoke of it small.
-                            Genius use except son esteem merely her limits. Sons park by do make on. It do oh cottage
-                            offered cottage in written. Especially of dissimilar up attachment court themselves by
-                            interested boisterous. Linen mrs seems men table to quitting.</p>
+                        <p>{{ product.body}}</p>
                     </div>
 
                 </div> <!-- /.tt-section-inner -->
@@ -272,24 +265,47 @@
             <div class="tt-section padding-bottom-xlg-150">
                 <div class="tt-section-inner">
 
-                    <!-- =============================
-                    ///// Begin content carousel /////
-                    ==================================
-                    * Use class "cc-shifted" to enable shifted style (no effect on small screens!).
-                    * Use class "cursor-drag" to enable cursor drag on carousel hover ("data-simulate-touch" attribute must be enabled!).
-                    * Use class "cc-scale-down" to enable scale down animation on carousel click.
-                    * Use class "cc-pagination-outside" to bring pagination outside.
-                    * Use class "cc-hide-pagination" to hide pagination (for desktop only!).
-                    * Use class "cc-hide-navigation" to hide navigation arrows.
-                    * Available data attributes:
-                            data-speed="900"......................(milliseconds)
-                            data-autoplay="5000"..................(milliseconds. Note: disabled after user first interactions)
-                            data-simulate-touch="true"............(true/false)
-                            data-loop="true"......................(true/false)
-                            data-pagination-type="bullets"........(bullets/fraction/progressbar)
+
+
+
+                    <!-- =======================
+                    ///// Begin tt-section /////
+                    ============================
+                    * You can use padding classes if needed. For example "padding-top-xlg-150", "padding-bottom-xlg-150", "no-padding-top", "no-padding-bottom", etc. Note that each situation may be different and each section may need different classes according to your needs. More info about helper classes can be found in the file "helper.css".
                     -->
-                    <div class="tt-content-carousel cursor-drag cc-scale-down cc-hide-pagination cc-hide-navigation"
-                         data-loop="true" data-simulate-touch="true" data-speed="900">
+                    <div class="tt-section padding-bottom-xlg-150">
+                        <div class="tt-section-inner tt-wrap">
+
+                            <!-- Begin page nav
+                            ====================
+                            * Use class "tt-pn-stroke" to enable title stroke style.
+                            * Use class "tt-pn-scroll" to enable hover title scroll. Note: If "tt-pn-hover-title" text is wider than "tt-pn-link" then it scrolls by default. The longer the text, the faster it scrolls.
+                            -->
+                            {% if product.get_next_by_created_date %}
+                            <div class="tt-page-nav tt-pn-scroll">
+                                <a href="{{ product.get_next_by_created_date.slug }}" class="tt-pn-link anim-fadeinup">
+                                    <div class="tt-pn-title"> پروژه بعدی</div>
+                                    <div class="tt-pn-hover-title">{{ product.get_next_by_created_date.title}}</div>
+                                </a> <!-- /.tt-pn-link -->
+
+                                <div class="tt-pn-subtitle anim-fadeinup">از زیتا مد بیشتر بدانید</div>
+
+                                <!-- Use if destination page contains page header image -->
+                                <div class="tt-pn-image">
+                                    <img src="{{product.get_next_by_created_date.main_image.url}}" alt="image">
+                                </div>
+                            </div>
+                            {% endif %}
+
+                            <!-- End page nav -->
+
+                        </div> <!-- /.tt-section-inner -->
+                    </div>
+                    <!-- End tt-section -->
+
+                    <div class="tt-portfolio-carousel pci-hover pci-caption-stroke cursor-drag-mouse-down pc-scale-down"
+                         data-simulate-touch="true" data-mousewheel="false" data-keyboard="true" data-grab-cursor="true"
+                         data-pagination-type="fraction">
 
                         <!-- Begin swiper container -->
                         <div class="swiper">
@@ -297,150 +313,66 @@
                             <!-- Begin swiper wrapper (required) -->
                             <div class="swiper-wrapper">
 
-                                <!-- Begin swiper slide 
+                                <!-- Begin swiper slide
                                 ======================== -->
-                                {% for image in product_gallery %}
-                                <div class="swiper-slide">
-
-                                    <div class="tt-content-carousel-item">
-                                        <figure class="cover-opacity-1">
-                                            <img class="tt-cc-image anim-image-parallax swiper-lazy"
-                                                 src="{{image.image.url}}"
-                                                 data-src="{{image.image.url}}"
-                                                 alt="Image">
-                                            <!-- <figcaption>Image Caption</figcaption> -->
-                                        </figure>
-                                    </div> <!-- /.tt-content-carousel-item -->
-                                </div>
-                                <!-- End swiper slide -->
-                                    {% endfor %}
 
 
+                                <!-- Begin portfolio carousel item
+                                ===================================
+                                * Use class "pci-image-is-light" if needed, it makes the caption visible better (useful if you use light image). No effect on smaller screens!
+                                -->
+                                {% for faa in product_gallery %}
+                                    <div class="swiper-slide">
+                                        <a href="{{ faa.image.url }}" class="tt-portfolio-carousel-item"
+                                           data-cursor="View<br>Project">
+
+                                            <!-- Use class "cover-opacity-*" to set an image overlay if needed. For example "cover-opacity-2". More info in the file "helper.css". -->
+                                            <figure class="tt-pci-image-wrap cover-opacity-2">
+                                                <img class="tt-pci-image swiper-lazy"
+                                                     src="{{faa.image.url}}"
+                                                     data-src="{{faa.image.url}}"
+                                                     alt="Image">
+                                            </figure> <!-- /.tt-pci-image-wrap -->
+
+                                            <div class="tt-pci-caption-front">
+                                                <div class="tt-pci-caption">
+                                                    <div class="tt-pci-caption-inner">
+                                                        <h2 class="tt-pci-title">{{ faa.title }}
+                                                        </h2>
+                                                        <!-- You can use <br class="hide-from-sm"> to break a text line if needed -->
+
+                                                    </div> <!-- /.tt-pci-caption-inner -->
+                                                </div> <!-- /.tt-pci-caption -->
+                                            </div> <!-- /.tt-pci-caption-front -->
+
+                                            <div class="tt-pci-caption tt-pci-caption-back">
+                                                <div class="tt-pci-caption-inner">
+                                                    <h2 class="tt-pci-title">{{ faa.title }}
+                                                    </h2>
+                                                    <!-- You can use <br class="hide-from-sm"> to break a text line if needed -->
+
+                                                </div> <!-- /.tt-pci-caption-inner -->
+                                            </div> <!-- /.tt-pci-caption -->
+                                        </a>
+                                        <!-- End portfolio carousel item -->
+
+                                    </div>
+                                {% endfor %}
 
 
-
-                        <!-- Content carousel navigation (arrows) -->
-                        <div class="tt-cc-nav-prev">
-                            <div class="tt-cc-nav-arrow magnetic-item"></div>
-                        </div>
-                        <div class="tt-cc-nav-next">
-                            <div class="tt-cc-nav-arrow magnetic-item"></div>
-                        </div>
-
-                        <!-- Content carousel pagination -->
-                        <div class="tt-cc-pagination hide-cursor"></div>
-
-                    </div>
-                    <!-- End content carousel -->
-
-                </div> <!-- /.tt-section-inner -->
-            </div>
-            <!-- End tt-section -->
-
-
-            <!-- =======================
-            ///// Begin tt-section /////
-            ============================ 
-            * You can use padding classes if needed. For example "padding-top-xlg-150", "padding-bottom-xlg-150", "no-padding-top", "no-padding-bottom", etc. Note that each situation may be different and each section may need different classes according to your needs. More info about helper classes can be found in the file "helper.css".
-            -->
-            <div class="tt-section padding-bottom-xlg-150">
-                <div class="tt-section-inner tt-wrap">
-
-                    <!-- Begin page nav 
-                    ==================== 
-                    * Use class "tt-pn-stroke" to enable title stroke style.
-                    * Use class "tt-pn-scroll" to enable hover title scroll. Note: If "tt-pn-hover-title" text is wider than "tt-pn-link" then it scrolls by default. The longer the text, the faster it scrolls.
-                    -->
-                    <div class="tt-page-nav tt-pn-scroll">
-                        <a href="single-project-8.html" class="tt-pn-link anim-fadeinup">
-                            <div class="tt-pn-title">Next Project</div>
-                            <div class="tt-pn-hover-title">Wall Lamp</div>
-                        </a> <!-- /.tt-pn-link -->
-
-                        <div class="tt-pn-subtitle anim-fadeinup">Explore More</div>
-
-                        <!-- Use if destination page contains page header image -->
-                        <div class="tt-pn-image">
-                            <img src="/static/assets/img/portfolio/portfolio-7.jpg" alt="image">
+                            </div>
                         </div>
                     </div>
-                    <!-- End page nav -->
-
-                </div> <!-- /.tt-section-inner -->
-            </div>
-            <!-- End tt-section -->
+                    <!-- End page content -->
 
 
-        </div>
-        <!-- End page content -->
+                    <!-- ======================
+                    ///// Begin tt-footer /////
+                    =========================== -->
+
+                    <!-- End tt-footer -->
 
 
-        <!-- ======================
-        ///// Begin tt-footer /////
-        =========================== -->
-        <footer id="tt-footer">
-            <div class="tt-footer-inner">
-
-                <!-- Begin footer column 
-                ========================= -->
-                <div class="footer-col tt-align-center-left">
-                    <div class="footer-col-inner">
-
-                        <!-- You can use whatever button or link here -->
-                        <div class="tt-btn tt-btn-link">
-                            <a href="#" class="scroll-to-top" data-hover="Back to top">Back to top</a>
-                        </div>
-
-                    </div> <!-- /.footer-col-inner -->
                 </div>
-                <!-- Begin footer column -->
-
-                <!-- Begin footer column 
-                ========================= -->
-                <div class="footer-col tt-align-center order-m-last">
-                    <div class="footer-col-inner">
-
-                        <div class="tt-copyright">
-                            © Copyright - <a href="https://themetorium.net" target="_blank" rel="noopener"
-                                             class="tt-link">Themetorium.net</a>
-                        </div>
-
-                    </div> <!-- /.footer-col-inner -->
-                </div>
-                <!-- Begin footer column -->
-
-                <!-- Begin footer column 
-                ========================= -->
-                <div class="footer-col tt-align-center-right">
-                    <div class="footer-col-inner">
-
-                        <div class="footer-social">
-                            <div class="footer-social-text"><span>Follow</span><i class="fas fa-share-alt"></i></div>
-                            <div class="social-buttons">
-                                <ul>
-                                    <li><a href="https://www.facebook.com/themetorium" class="magnetic-item"
-                                           target="_blank" rel="noopener">Fb.</a></li>
-                                    <li><a href="https://twitter.com/Themetorium" class="magnetic-item" target="_blank"
-                                           rel="noopener">Tw.</a></li>
-                                    <li><a href="https://www.youtube.com/" class="magnetic-item" target="_blank"
-                                           rel="noopener">Yt.</a></li>
-                                    <li><a href="https://dribbble.com/Themetorium" class="magnetic-item" target="_blank"
-                                           rel="noopener">Dr.</a></li>
-                                    <li><a href="https://www.behance.net/Themetorium" class="magnetic-item"
-                                           target="_blank" rel="noopener">Be.</a></li>
-                                </ul>
-                            </div> <!-- /.social-buttons -->
-                        </div> <!-- /.footer-social -->
-
-                    </div> <!-- /.footer-col-inner -->
-                </div>
-                <!-- Begin footer column -->
-
-            </div> <!-- /.tt-section-inner -->
-        </footer>
-        <!-- End tt-footer -->
-
-
-    </div>
 
 {% endblock %}

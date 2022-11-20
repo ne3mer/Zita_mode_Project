@@ -23,9 +23,9 @@ class Product(models.Model):
     image1 = models.ImageField(upload_to='images/product/%Y/%m/%d', null=True, verbose_name='تصویر 1', default='')
     image2 = models.ImageField(upload_to='images/product/%Y/%m/%d', null=True, verbose_name='تصویر 2', default='')
     image3 = models.ImageField(upload_to='images/product/%Y/%m/%d', null=True, verbose_name='تصویر 3', default='')
-    body = models.TextField(null=False, blank=False)
+    body =  models.TextField(max_length=500, db_index=True, null=True, verbose_name='توضیحات اصلی محصول')
     designer_word = models.TextField(null=True, blank=True,verbose_name='سخن طراح')
-    short_description = models.CharField(max_length=150, db_index=True, null=True, verbose_name='توضیحات کوتاه')
+    short_description = models.TextField(max_length=150, db_index=True, null=True, verbose_name='توضیحات کوتاه')
     designer = models.CharField(max_length=300, null=False, blank=False, verbose_name='طراح')
     created_date = models.DateTimeField(auto_now_add=True, null=False, blank=False, editable=False)
     category = models.ForeignKey('ProductCategory', verbose_name='دسته بندی ها',default='',on_delete=models.CASCADE)
@@ -40,6 +40,7 @@ class Product(models.Model):
 
 
 class ProductGallery(models.Model):
+    title = models.CharField(default='',verbose_name='نام عکس',max_length=100)
     product = models.ForeignKey(Product, on_delete=models.CASCADE, verbose_name='محصول')
     image = models.ImageField(upload_to='images/product-gallery', verbose_name='تصویر')
 
