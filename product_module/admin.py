@@ -21,3 +21,4 @@ class ProductCategoryAdmin(admin.ModelAdmin):
 # Register your models here.
 admin.site.register(models.Product, ProductAdmin)
 admin.site.register(models.ProductCategory, ProductCategoryAdmin)
+admin.site.register(models.ProductGallery)

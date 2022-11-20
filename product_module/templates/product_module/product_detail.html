@@ -32,7 +32,7 @@
                 ============================= -->
                 <div class="ph-image">
                     <div class="ph-image-inner">
-                        <img src="/static/assets/img/page-header/project-ph/project-ph-6.jpg" alt="Image">
+                        <img src="{{ product.main_image.url }}">
                     </div>
                 </div>
                 <!-- End page header image -->
@@ -43,7 +43,7 @@
                 -->
                 <div class="ph-caption">
                     <div class="ph-categories ph-appear">
-                        <div class="ph-category" style="">Nature</div>
+                        <div class="ph-category" style="">{{ product.category }}</div>
                         <!-- <div class="ph-category">Varia</div> -->
                     </div> <!-- /.ph-categories -->
 
@@ -95,7 +95,7 @@
                                   id="textcircle"></path>
                         </defs>
                         <text dy="30">
-                            <textPath xlink:href="#textcircle">Scroll down - Scroll down -</textPath>
+                            <textPath xlink:href="#textcircle">Scroll down - scroll down -</textPath>
                         </text>
                     </svg>
                 </div> <!-- /.sdc-inner -->
@@ -187,9 +187,9 @@
                             <div class="anim-fadeinup text-gray">
                                 <p>{{ product.body }}
 
-                                <!-- <div class="tt-btn tt-btn-link no-margin">
-                                    <a href="dummy-page.html" data-hover="Read More">Read More</a>
-                                </div> -->
+                                    <!-- <div class="tt-btn tt-btn-link no-margin">
+                                        <a href="dummy-page.html" data-hover="Read More">Read More</a>
+                                    </div> -->
                             </div>
 
                         </div> <!-- /.tt-col -->
@@ -216,8 +216,9 @@
                     -->
                     <div class="tt-image tti-fixed-height">
                         <figure>
-                            <img class="anim-image-parallax tt-lazy" src="/static/assets/img/low-qlt-thumb.jpg"
-                                 data-src="/static/assets/img/portfolio/single-project/project-7/project-7-1.jpg" alt="image">
+                            <img class="anim-image-parallax tt-lazy" src='{{ product.image1.url }}'
+                                                         data-src="{{ product.main_image }}"
+                                 alt="image">
                             <figcaption>
                                 Image Caption
                             </figcaption>
@@ -298,84 +299,25 @@
 
                                 <!-- Begin swiper slide 
                                 ======================== -->
+                                {% for image in product_gallery %}
                                 <div class="swiper-slide">
+
                                     <div class="tt-content-carousel-item">
                                         <figure class="cover-opacity-1">
                                             <img class="tt-cc-image anim-image-parallax swiper-lazy"
-                                                 src="/static/assets/img/low-qlt-thumb.jpg"
-                                                 data-src="/static/assets/img/portfolio/single-project/project-7/project-7-2.jpg"
+                                                 src="{{image.image.url}}"
+                                                 data-src="{{image.image.url}}"
                                                  alt="Image">
                                             <!-- <figcaption>Image Caption</figcaption> -->
                                         </figure>
                                     </div> <!-- /.tt-content-carousel-item -->
                                 </div>
                                 <!-- End swiper slide -->
+                                    {% endfor %}
 
-                                <!-- Begin swiper slide 
-                                ======================== -->
-                                <div class="swiper-slide">
-                                    <div class="tt-content-carousel-item">
-                                        <figure class="cover-opacity-1">
-                                            <img class="tt-cc-image anim-image-parallax swiper-lazy"
-                                                 src="/static/assets/img/low-qlt-thumb.jpg"
-                                                 data-src="/static/assets/img/portfolio/single-project/project-7/project-7-3.jpg"
-                                                 alt="Image">
-                                            <!-- <figcaption>Image Caption</figcaption> -->
-                                        </figure>
-                                    </div> <!-- /.tt-content-carousel-item -->
-                                </div>
-                                <!-- End swiper slide -->
 
-                                <!-- Begin swiper slide 
-                                ======================== -->
-                                <div class="swiper-slide">
-                                    <div class="tt-content-carousel-item">
-                                        <figure class="cover-opacity-1">
-                                            <img class="tt-cc-image anim-image-parallax swiper-lazy"
-                                                 src="/static/assets/img/low-qlt-thumb.jpg"
-                                                 data-src="/static/assets/img/portfolio/single-project/project-7/project-7-4.jpg"
-                                                 alt="Image">
-                                            <!-- <figcaption>Image Caption</figcaption> -->
-                                        </figure>
-                                    </div> <!-- /.tt-content-carousel-item -->
-                                </div>
-                                <!-- End swiper slide -->
 
-                                <!-- Begin swiper slide 
-                                ======================== -->
-                                <div class="swiper-slide">
-                                    <div class="tt-content-carousel-item">
-                                        <figure class="cover-opacity-1">
-                                            <img class="tt-cc-image anim-image-parallax swiper-lazy"
-                                                 src="/static/assets/img/low-qlt-thumb.jpg"
-                                                 data-src="/static/assets/img/portfolio/single-project/project-7/project-7-5.jpg"
-                                                 alt="Image">
-                                            <!-- <figcaption>Image Caption</figcaption> -->
-                                        </figure>
-                                    </div> <!-- /.tt-content-carousel-item -->
-                                </div>
-                                <!-- End swiper slide -->
 
-                                <!-- Begin swiper slide 
-                                ======================== -->
-                                <div class="swiper-slide">
-                                    <div class="tt-content-carousel-item">
-                                        <figure class="cover-opacity-1">
-                                            <img class="tt-cc-image anim-image-parallax swiper-lazy"
-                                                 src="/static/assets/img/low-qlt-thumb.jpg"
-                                                 data-src="/static/assets/img/portfolio/single-project/project-7/project-7-6.jpg"
-                                                 alt="Image">
-                                            <!-- <figcaption>Image Caption</figcaption> -->
-                                        </figure>
-                                    </div> <!-- /.tt-content-carousel-item -->
-                                </div>
-                                <!-- End swiper slide -->
-
-                            </div>
-                            <!-- End swiper wrapper -->
-
-                        </div>
-                        <!-- End swiper container -->
 
                         <!-- Content carousel navigation (arrows) -->
                         <div class="tt-cc-nav-prev">

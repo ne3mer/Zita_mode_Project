@@ -1,5 +1,6 @@
 {% extends 'shared/_layout.html' %}
-
+{% block title %}آموزش های زیتا
+{% endblock %}
 
 
 {% block topbody %}
@@ -20,16 +21,16 @@
         * Use class "ph-content-parallax" to enable content parallax.
         * Use class "ph-stroke" to enable caption title stroke style.
         -->
-        <div id="page-header" class="ph-full ph-cap-xxlg ph-image-cropped ph-image-cover-2 ph-content-parallax">
+        <div id="page-header" class="ph-cap-lg ph-center ph-image-cropped ph-image-cover-4 ph-content-parallax">
             <div class="page-header-inner tt-wrap">
 
                 <!-- Begin page header image
                 ============================= -->
-                <div class="ph-image">
+                <!-- <div class="ph-image">
                     <div class="ph-image-inner">
-                        <img src="/static/assets/img/page-header/ph-1.jpg" alt="Image">
+                        <img src="/static/assets/img/page-header/ph-2.jpg" alt="Image">
                     </div>
-                </div>
+                </div> -->
                 <!-- End page header image -->
 
                 <!-- Begin page header caption
@@ -37,9 +38,9 @@
                 Use class "max-width-*" to set caption max width if needed. For example "max-width-1000". More info about helper classes can be found in the file "helper.css".
                 -->
                 <div class="ph-caption">
-                    <h1 class="ph-caption-title ph-appear">طراحی های زیتا</h1>
-                    <div class="ph-caption-title-ghost ph-appear">طراحی های زیتا</div>
-                    <div class="ph-caption-subtitle ph-appear">تمام طراحی های زیتا</div>
+                    <h1 class="ph-caption-title ph-appear">Blog</h1>
+                    <div class="ph-caption-title-ghost ph-appear">Blog</div>
+                    <div class="ph-caption-subtitle ph-appear">Articles &amp; News</div>
                 </div>
                 <!-- End page header caption -->
 
@@ -88,98 +89,88 @@
             ============================
             * You can use padding classes if needed. For example "padding-top-xlg-150", "padding-bottom-xlg-150", "no-padding-top", "no-padding-bottom", etc. Note that each situation may be different and each section may need different classes according to your needs. More info about helper classes can be found in the file "helper.css".
             -->
-            <div id="sdc-target" class="tt-section padding-bottom-150">
-                <div class="tt-section-inner">
 
-                    <!-- Begin portfolio list
-                    ==========================
-                    * Use class "pl-alter" to enable alternative layout.
-                    * Use class "pl-compact" to enable compact layout (no effect with class "pli-info-overlay"!).
-                    * Use class "pli-cropped" to crop images (it sets the images to a fixed height).
-                    * Use class "pli-hover" to enable item hover effect.
-                    * Use class "pli-info-overlay" to enable item info overlay.
-                    * Use class "pli-title-stroke" to enable item title stroke effect.
-                    * Use class "pli-info-sm", "pli-info-lg", "pli-info-xlg" or "pli-info-xxlg" to set item info size (no class = default size!)
+
+            <div class="tt-section">
+                <div class="tt-section-inner tt-wrap">
+
+                    <!-- Begin blog interactive
+                    =================================
+                    * Use class "bi-borders" to enable borders.
                     -->
-                    <div class="portfolio-list pli-cropped pl-compact pli-hover">
+                    <div class="blog-interactive bi-borders">
 
-                        <!-- Begin portfolio list item
-                        ===============================
-                        * Use class "pli-image-is-light" if needed, it makes the caption visible better if you use light image (only effect if "pli-info-overlay" is enabled!).
-                        -->
-                        {% for product in object_list %}
-                            <div class="portfolio-list-item">
-                                <div class="pli-inner">
+                        <!-- Begin blog interactive item
+                        ====================================== -->
+                        {% for blog in blogs %}
+                            <article class="blog-interactive-item anim-skewinup">
+                                <a href="{% url 'blog_detail' slug=blog.slug %}" class="bi-item-image">
+                                    <!-- if exist -->
+                                    <img src="{{ blog.main_image.url }}" alt="image">
+                                </a>
+                                <div class="bi-item-categories">
+                                    <a href="blog-archive.html">Lifestyle</a>
+                                    <!-- <a href="blog-archive.html">Uncategorized</a> -->
+                                </div>
+                                <h2 class="bi-item-title"><a
+                                        href="{% url 'blog_detail' slug=blog.slug %}">{{ blog.title }}</a></h2>
+                                <div class="bi-item-meta">
+                                    <span class="published">{{ blog.created_date }}</span>
+                                    <span class="posted-by">category:<a href="blog-archive.html"
+                                                                        title="View all posts by John Doe">{{ blog.category.title }}</a></span>
+                                </div>
 
-                                    <div class="pli-image-col">
-                                        <a href="{% url 'product_detail' slug=product.slug %}" class="pli-image-link"
-                                           data-cursor="View<br>Project">
-                                            <div class="pli-image-holder">
-                                                <!-- Use class "cover-opacity-*" to set image overlay if needed. For example "cover-opacity-2". Useful if class "pli-info-overlay" is enabled on "portfolio-list". Note: It is individual and depends on the image you use. More info about helper classes in file "helper.css". -->
-                                                <figure class="pli-image">
-                                                    <img class="anim-image-parallax tt-lazy"
-                                                         src='{{ product.main_image.url }}'
-                                                         data-src="{{ product.main_image.url }}"
-                                                         alt="image">
-                                                </figure> <!-- /.pli-image -->
-                                            </div> <!-- /.pli-image-holder -->
 
-                                            <div class="pli-info-col pli-info-inner">
-                                                <div class="pli-info">
-                                                    <h2 class="pli-title">{{ product.title }}</h2>
-                                                    <!-- You can use <br class="hide-from-sm"> to break a text line if needed -->
-                                                    <div class="pli-categories-wrap">
-                                                        <div class="pli-category">{{ product.title }}</div>
-                                                        <!-- <div class="pli-category">Varia</div> -->
-                                                    </div> <!-- /.pli-categories-wrap -->
-                                                </div> <!-- /.pli-info -->
-                                            </div> <!-- /.pli-info-col -->
-
-                                        </a> <!-- /.pli-image-link -->
-                                    </div> <!-- /.pli-image-col -->
-
-                                    <div class="pli-info-col pli-info-outer">
-                                        <div class="pli-info">
-                                            <div class="pli-counter"></div>
-                                            <h2 class="pli-title"><a
-                                                    href="{% url 'product_detail' slug=product.slug %}">{{ product.title }}</a></h2>
-                                            <!-- You can use <br class="hide-from-sm"> to break a text line if needed -->
-                                            <div class="pli-categories-wrap">
-                                                <div class="pli-category">{{ product.short_description }}</div>
-                                                <!-- <div class="pli-category">Varia</div> -->
-                                            </div> <!-- /.pli-categories-wrap -->
-                                        </div> <!-- /.pli-info -->
-                                    </div> <!-- /.pli-info-col -->
-
-                                </div> <!-- /.pli-inner -->
-                            </div>
-                            <!-- End portfolio list item -->
+                            </article>
+                            <!-- End blog interactive item -->
                         {% endfor %}
+                    </div>
+                    <!-- End blog interactive -->
 
+
+                    <!-- Begin sliding sidebar
+                    ===========================
+                    * Use class "tt-ss-right" to align sidebar to right.
+                    -->
+                    <!-- End sliding sidebar -->
+
+
+                    <!-- Begin tt-pagination
+            =========================
+            * Use class "tt-pagin-center" to align center.
+            -->
+                    <div class="tt-pagination tt-pagin-center margin-top-xlg-100 anim-fadeinup">
+                        {% if page_obj.has_previous %}
+
+                            <div class="tt-pagin-prev">
+                                <a href="?page={{ page_obj.previous_page_number }}" class="tt-pagin-item magnetic-item"><i
+                                        class="fas fa-chevron-left"></i></a>
+                            </div>
+                        {% endif %}
+
+
+                        {% comment %}
+                        <a href="#0" class="tt-pagin-item magnetic-item active">1</a>
+{% endcomment %}
+                        <div class="tt-pagin-numbers tt-pagin-center">
+                        {% for pageNumber in paginator.page_range %}
+
+                                <a href="?page={{ pageNumber }}"
+                                   class="tt-pagin-item magnetic-item {% if page_obj.number == pageNumber %}active{% endif %} ">{{ pageNumber }}</a>
+
+                        {% endfor %}
+                        </div>
+                        {% if page_obj.has_next %}
+                            <div class="tt-pagin-next">
+                                <a href="?page={{ page_obj.next_page_number }}"
+                                   class="tt-pagin-item tt-pagin-next magnetic-item"><i
+                                        class="fas fa-chevron-right"></i></a>
+                            </div>
+                        {% endif %}
 
                     </div>
-                    <!-- End portfolio list -->
-
-
-                    <!-- Begin tt-pagination (uncomment below code if you want to use pagination)
-                    =========================
-                    * Use class "tt-pagin-center" to align center.
-                    -->
-                    <!-- <div class="tt-pagination tt-pagin-center margin-top-80 anim-fadeinup tt-wrap">
-                        <div class="tt-pagin-prev">
-                            <a href="" class="tt-pagin-item magnetic-item"><i class="fas fa-chevron-left"></i></a>
-                        </div>
-                        <div class="tt-pagin-numbers">
-                            <a href="#0" class="tt-pagin-item magnetic-item active">1</a>
-                            <a href="" class="tt-pagin-item magnetic-item">2</a>
-                            <a href="" class="tt-pagin-item magnetic-item">3</a>
-                            <a href="" class="tt-pagin-item magnetic-item">4</a>
-                        </div>
-                        <div class="tt-pagin-next">
-                            <a href="" class="tt-pagin-item tt-pagin-next magnetic-item"><i class="fas fa-chevron-right"></i></a>
-                        </div>
-                    </div> -->
                     <!-- End tt-pagination -->
+
 
                 </div> <!-- /.tt-section-inner -->
             </div>
@@ -200,16 +191,16 @@
                     * Use class "tt-pn-scroll" to enable hover title scroll. Note: If "tt-pn-hover-title" text is wider than "tt-pn-link" then it scrolls by default. The longer the text, the faster it scrolls.
                     -->
                     <div class="tt-page-nav tt-pn-scroll">
-                        <a href="contact.html" class="tt-pn-link anim-fadeinup">
-                            <div class="tt-pn-title">Let's talk</div>
-                            <div class="tt-pn-hover-title">Let's talk</div>
+                        <a href="portfolio-grid-modern.html" class="tt-pn-link anim-fadeinup">
+                            <div class="tt-pn-title">Portfolio</div>
+                            <div class="tt-pn-hover-title">Portfolio</div>
                         </a> <!-- /.tt-pn-link -->
 
-                        <div class="tt-pn-subtitle anim-fadeinup">Get in Touch</div>
+                        <div class="tt-pn-subtitle anim-fadeinup">Selected Works</div>
 
                         <!-- Use if destination page contains page header image -->
                         <div class="tt-pn-image">
-                            <img src="/static/assets/img/page-header/ph-3.jpg" alt="image">
+                            <img src="/static/assets/img/page-header/ph-1.jpg" alt="image">
                         </div>
                     </div>
                     <!-- End page nav -->
@@ -249,9 +240,8 @@
                     <div class="footer-col-inner">
 
                         <div class="tt-copyright">
-                            © تمامی حقوق زیتا مد محفوظ میباشد - <a href="https://zitmode.com" target="_blank"
-                                                                   rel="noopener"
-                                                                   class="tt-link">zitamode.com</a>
+                            © Copyright - <a href="https://themetorium.net" target="_blank" rel="noopener"
+                                             class="tt-link">Themetorium.net</a>
                         </div>
 
                     </div> <!-- /.footer-col-inner -->
@@ -291,4 +281,5 @@
 
 
     </div>
+
 {% endblock %}
