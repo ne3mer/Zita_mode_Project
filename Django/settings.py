@@ -38,12 +38,12 @@ INSTALLED_APPS = [
     'product_module',
     'jalali_date',
     'blog_module',
-    'team_module',
-    'gallery_module',
     'ckeditor',
     'home_module',
     'django_render_partial',
     'ckeditor_uploader',
+    'contact_module',
+
 
 ]
 

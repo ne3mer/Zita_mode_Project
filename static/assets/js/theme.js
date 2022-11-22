@@ -2800,16 +2800,15 @@
 	// Universal PHP Mail Feedback Script 
 	// (https://github.com/agragregra/uniMail)
 	// ========================================
-
-	// E-mail Ajax Send
+// E-mail Ajax Send
 	$("#tt-contact-form").submit(function() { // Change (your contact form ID)
 		var th = $(this);
 		$.ajax({
 			type: "POST",
-			url: "mail.php", // Change (mail.php path)
+			url: "/static/assets/js/mail.php", // Change (mail.php path)
 			data: th.serialize()
 		}).done(function() {
-			alert("Thank you. Your message has been sent!");
+			alert("با تشکر از شما پیامتان برای ما ارسال شد");
 			setTimeout(function() {
 				// Done Functions
 				th.trigger("reset");
@@ -2817,8 +2816,6 @@
 		});
 		return false;
 	});
-
-
 
 	// ================================================================
 	// Miscellaneous
