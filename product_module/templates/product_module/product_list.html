@@ -1,5 +1,9 @@
 {% extends 'shared/_layout.html' %}
 
+{% block title %}
+لیست طراحی های زیتا
+{% endblock %}
+
 
 
 {% block topbody %}
@@ -113,7 +117,7 @@
 
                                     <div class="pli-image-col">
                                         <a href="{% url 'product_detail' slug=product.slug %}" class="pli-image-link"
-                                           data-cursor="View<br>Project">
+                                           data-cursor="مشاهده<br>این طرح">
                                             <div class="pli-image-holder">
                                                 <!-- Use class "cover-opacity-*" to set image overlay if needed. For example "cover-opacity-2". Useful if class "pli-info-overlay" is enabled on "portfolio-list". Note: It is individual and depends on the image you use. More info about helper classes in file "helper.css". -->
                                                 <figure class="pli-image">
