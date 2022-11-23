@@ -1,7 +1,7 @@
 {% extends 'shared/_layout.html' %}
 
 {{% block title %}
-{{ product.title }}
+    {{ product.title }}
 {% endblock %}
 
 
@@ -28,7 +28,8 @@
         * Use class "ph-inline" to enable content inline position (for a single project page only! No effect with class "ph-center"!).
         -->
         <div id="page-header"
-             class="ph-full ph-inline ph-bg-image ph-image-shadow ph-image-cover-5 ph-content-parallax" style="direction: rtl">
+             class="ph-full ph-inline ph-bg-image ph-image-shadow ph-image-cover-5 ph-content-parallax"
+             style="direction: rtl">
             <div class="page-header-inner tt-wrap">
 
                 <!-- Begin page header image 
@@ -83,19 +84,20 @@
 
             <!-- Begin scroll down circle (you can change "data-offset" to set scroll top offset) 
             ============================== -->
-           <a href="#page-content" class="scroll-down-circle" data-offset="30">
-							<div class="sdc-inner ph-appear">
-								<div class="sdc-icon"><i class="fas fa-chevron-down"></i></div>
-								<svg viewBox="0 0 500 500">
-									<defs>
-										<path d="M50,250c0-110.5,89.5-200,200-200s200,89.5,200,200s-89.5,200-200,200S50,360.5,50,250" id="textcircle"></path>
-									</defs>
-									<text dy="30">
-										<textPath xlink:href="#textcircle">Scroll down - Scroll down -</textPath>
-									</text>
-								</svg>
-							</div> <!-- /.sdc-inner -->
-						</a>
+            <a href="#page-content" class="scroll-down-circle" data-offset="30">
+                <div class="sdc-inner ph-appear">
+                    <div class="sdc-icon"><i class="fas fa-chevron-down"></i></div>
+                    <svg viewBox="0 0 500 500">
+                        <defs>
+                            <path d="M50,250c0-110.5,89.5-200,200-200s200,89.5,200,200s-89.5,200-200,200S50,360.5,50,250"
+                                  id="textcircle"></path>
+                        </defs>
+                        <text dy="30">
+                            <textPath xlink:href="#textcircle">Scroll down - Scroll down -</textPath>
+                        </text>
+                    </svg>
+                </div> <!-- /.sdc-inner -->
+            </a>
             <!-- End scroll down circle -->
 
             <!-- Begin made with love 
@@ -215,9 +217,7 @@
                             <img class="anim-image-parallax tt-lazy" src='{{ product.image1.url }}'
                                  data-src="{{ product.main_image }}"
                                  alt="image">
-                            <figcaption>
-                                Image Caption
-                            </figcaption>
+
                         </figure>
                     </div>
                     <!-- End tt-image -->
@@ -232,7 +232,8 @@
             ============================ 
             * You can use padding classes if needed. For example "padding-top-xlg-150", "padding-bottom-xlg-150", "no-padding-top", "no-padding-bottom", etc. Note that each situation may be different and each section may need different classes according to your needs. More info about helper classes can be found in the file "helper.css".
             -->
-            <div style="direction: rtl" class="tt-section padding-top-xlg-100 padding-bottom-xlg-100 padding-left-sm-3-p padding-right-sm-3-p">
+            <div style="direction: rtl"
+                 class="tt-section padding-top-xlg-100 padding-bottom-xlg-100 padding-left-sm-3-p padding-right-sm-3-p">
                 <div class="tt-section-inner tt-wrap max-width-900">
 
                     <!-- Begin tt-Heading 
@@ -243,13 +244,13 @@
                     * Use prepared helper class "max-width-*" to add custom width if needed. Example: "max-width-800". More info about helper classes can be found in the file "helper.css".
                     -->
                     <div class="tt-heading tt-heading-xsm anim-fadeinup">
-                        <h2 class="tt-heading-title">متن آموزش {{ product.title }}</h2>
+                        <h2 class="tt-heading-title">سخن طراح {{ product.title }}</h2>
                         <!-- <h3 class="tt-heading-subtitle text-gray">Subtitle</h3> -->
                     </div>
                     <!-- End tt-Heading -->
 
                     <div class="anim-fadeinup text-gray">
-                        <p>{{ product.body}}</p>
+                        <p>{{ product.designer_word }}</p>
                     </div>
 
                 </div> <!-- /.tt-section-inner -->
@@ -266,8 +267,6 @@
                 <div class="tt-section-inner">
 
 
-
-
                     <!-- =======================
                     ///// Begin tt-section /////
                     ============================
@@ -282,19 +281,20 @@
                             * Use class "tt-pn-scroll" to enable hover title scroll. Note: If "tt-pn-hover-title" text is wider than "tt-pn-link" then it scrolls by default. The longer the text, the faster it scrolls.
                             -->
                             {% if product.get_next_by_created_date %}
-                            <div class="tt-page-nav tt-pn-scroll">
-                                <a href="{{ product.get_next_by_created_date.slug }}" class="tt-pn-link anim-fadeinup">
-                                    <div class="tt-pn-title"> پروژه بعدی</div>
-                                    <div class="tt-pn-hover-title">{{ product.get_next_by_created_date.title}}</div>
-                                </a> <!-- /.tt-pn-link -->
+                                <div class="tt-page-nav tt-pn-scroll">
+                                    <a href="{{ product.get_next_by_created_date.slug }}"
+                                       class="tt-pn-link anim-fadeinup">
+                                        <div class="tt-pn-title"> پروژه بعدی</div>
+                                        <div class="tt-pn-hover-title">{{ product.get_next_by_created_date.title }}</div>
+                                    </a> <!-- /.tt-pn-link -->
 
-                                <div class="tt-pn-subtitle anim-fadeinup">از زیتا مد بیشتر بدانید</div>
+                                    <div class="tt-pn-subtitle anim-fadeinup">از زیتا مد بیشتر بدانید</div>
 
-                                <!-- Use if destination page contains page header image -->
-                                <div class="tt-pn-image">
-                                    <img src="{{product.get_next_by_created_date.main_image.url}}" alt="image">
+                                    <!-- Use if destination page contains page header image -->
+                                    <div class="tt-pn-image">
+                                        <img src="{{ product.get_next_by_created_date.main_image.url }}" alt="image">
+                                    </div>
                                 </div>
-                            </div>
                             {% endif %}
 
                             <!-- End page nav -->
@@ -324,14 +324,16 @@
                                 {% for faa in product_gallery %}
                                     <div class="swiper-slide">
                                         <a href="{{ faa.image.url }}" class="tt-portfolio-carousel-item"
-                                           data-cursor="View<br>Project">
+                                           data-cursor="View<br>Project"
+                                        target="_blank">
 
                                             <!-- Use class "cover-opacity-*" to set an image overlay if needed. For example "cover-opacity-2". More info in the file "helper.css". -->
                                             <figure class="tt-pci-image-wrap cover-opacity-2">
                                                 <img class="tt-pci-image swiper-lazy"
-                                                     src="{{faa.image.url}}"
-                                                     data-src="{{faa.image.url}}"
-                                                     alt="Image">
+                                                     src="{{ faa.image.url }}"
+                                                     data-src="{{ faa.image.url }}"
+                                                     alt="Image"
+                                                >
                                             </figure> <!-- /.tt-pci-image-wrap -->
 
                                             <div class="tt-pci-caption-front">

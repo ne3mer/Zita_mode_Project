@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'django_render_partial',
     'ckeditor_uploader',
     'contact_module',
+    'about_module',
 
 
 ]

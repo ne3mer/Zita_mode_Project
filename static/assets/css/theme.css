@@ -436,6 +436,10 @@ body:not(.is-mobile).tt-smooth-scroll #scroll-container {
     /*background: rgba(222, 222, 222, 0.1) !important;*/
 }
 
+big{
+    font-family: Vazirmatn, sans-serif;
+}
+
 .scrollbar-thumb {
     background: #DDD !important;
     opacity: .25;
